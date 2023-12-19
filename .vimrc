@@ -7,6 +7,8 @@ call plug#begin()
     Plug 'morhetz/gruvbox'
     " NerdTree Plugin
     Plug 'preservim/nerdtree'
+    " Plugin for Visual Marks
+    Plug 'kshenoy/vim-signature'
 call plug#end()
 
 " Disable compatibility with vi
@@ -102,9 +104,6 @@ set smartcase
 
 " }
 
-
-
-
 " Whitespace {
     set nowrap
     set autoindent
@@ -118,15 +117,48 @@ set smartcase
 
 " Key Mapping {
     let mapleader = ','
+    " toggle spellcheck
+    map <leader>ss :setlocal spell!<cr>
+    " Spellcheck nav
+    map <leader>sn ]s
+    map <leader>sp [s
+    map <leader>sa zg
+    map <leader>s? z=
+
     " Ctrl+W+(J/K/L/H) switch to Ctrl+(J/K/L/H)
-     map <C-J> <C-W>j<C-W>_
-     map <C-K> <C-W>k<C-W>_
-     map <C-L> <C-W>l<C-W>_
-     map <C-H> <C-W>h<C-W>_
-     map <C-K> <C-W>k<C-W>_
+    map <C-J> <C-W>j<C-W>_
+    map <C-K> <C-W>k<C-W>_
+    map <C-L> <C-W>l<C-W>_
+    map <C-H> <C-W>h<C-W>_
+    map <C-K> <C-W>k<C-W>_
     " Maps Shift+(H/L) to navigate tabs
-     map <S-H> gT
-     map <S-L> gt
+    map <S-H> gT
+    map <S-L> gt
+    " Remap VIM 0 to first non-blank character
+    map 0 ^
+
+
+    """ Code folding options
+    nmap <leader>f0 :set foldlevel=0<CR>
+    nmap <leader>f1 :set foldlevel=1<CR>
+    nmap <leader>f2 :set foldlevel=2<CR>
+    nmap <leader>f3 :set foldlevel=3<CR>
+    nmap <leader>f4 :set foldlevel=4<CR>
+    nmap <leader>f5 :set foldlevel=5<CR>
+    nmap <leader>f6 :set foldlevel=6<CR>
+    nmap <leader>f7 :set foldlevel=7<CR>
+    nmap <leader>f8 :set foldlevel=8<CR>
+    nmap <leader>f9 :set foldlevel=9<CR> 
+
+    " Move a line of text using ALT+[jk] or Command+[jk] on mac
+    nmap <M-j> mz:m+<cr>`z
+    nmap <M-k> mz:m-2<cr>`z
+    vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+    vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+    if has("autocmd")
+        autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    endif
 
     " Normal Mode
     " Makes ; behave as :
@@ -167,3 +199,11 @@ function! HasPaste()
     endif
     return ''
 endfunction
+" Delete trailing white space on save
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
