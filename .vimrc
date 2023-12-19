@@ -62,6 +62,7 @@
     set background=dark
     " load a colorscheme
     color gruvbox
+    colorscheme gruvbox
     " only show 15 tabs
     set tabpagemax=15
     " display the current modew
@@ -111,7 +112,6 @@
   " remove the toolbar
   set guioptions-=T
   set lines=40
-  set transparency=5
   else
   set term=builtin_ansi
   endif
