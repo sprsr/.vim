@@ -9,6 +9,11 @@
     Plug 'preservim/nerdtree'
     " Plugin for Visual Marks
     Plug 'kshenoy/vim-signature'
+    " Plugin for Linting
+    Plug 'dense-analysis/ale'
+    " Plugin for Autocomplete
+
+
     call plug#end()
 
     " Disable compatibility with vi
@@ -58,11 +63,10 @@
 " --------------------------------------------------------}
 
 " Vim UI -------------------------------------------------{
-" Dark Background
+    " Dark Background
     set background=dark
     " load a colorscheme
     color gruvbox
-    colorscheme gruvbox
     " only show 15 tabs
     set tabpagemax=15
     " display the current modew
@@ -151,6 +155,7 @@
     map <C-L> <C-W>l<C-W>_
     map <C-H> <C-W>h<C-W>_
     map <C-K> <C-W>k<C-W>_
+
     " Maps Shift+(H/L) to navigate tabs
     map <S-H> gT
     map <S-L> gt
@@ -183,7 +188,7 @@
 
     " Normal Mode
     " Makes ; behave as :
-    nnoremap ;:
+    nnoremap ; :
     " Navigation on wrapped lines
     nnoremap j gj
     nnoremap k gk
@@ -224,3 +229,6 @@ fun! CleanExtraSpaces()
     call setpos('.', save_cursor)
     call setreg('/', old_query)
 endfun
+
+" Colorscheme keeps resetting...
+colorscheme gruvbox
