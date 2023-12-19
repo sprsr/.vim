@@ -9,8 +9,6 @@
     Plug 'preservim/nerdtree'
     " Plugin for Visual Marks
     Plug 'kshenoy/vim-signature'
-    " Plugin for Linting
-    Plug 'dense-analysis/ale'
     " Simple Tab Complete"
     Plug 'vim-scripts/VimCompletesMe'
     " Interactive Programs in Buffers (terminal)
