@@ -23,9 +23,6 @@
   set number
   set relativenumber
 
-  " Highlight cursor line
-  set cursorline
-  " set cursorcolumn
 
   " Set shift width to 4 spaces
   set shiftwidth=4
@@ -40,6 +37,8 @@
 
   " Spell Checking
   set spell
+  " Encoding. 
+  set encoding=utf-8
 
 
 " Vim UI {
@@ -49,16 +48,15 @@
   set tabpagemax=15
   " display the current modew
   set showmode
-
+  " Highlight cursor line
+  set cursorline
+  " set cursorcolumn
   " Blink cursor on error
   set visualbell
+  " File Stats
+  set ruler
+  set rulerformat=%30(%=\\:b%n%y%m%r%w\\ %l,%c%V\\ %P%)
 
-" File Stats
-set ruler
-
-
-" Encoding. 
-set encoding=utf-8
 
 " Security
 set modelines=0
