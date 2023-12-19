@@ -112,7 +112,6 @@
   set guioptions-=T
   set lines=40
   set transparency=5
-  transparent
   else
   set term=builtin_ansi
   endif
@@ -207,21 +206,21 @@
     vnoremap > >gv
 " --------------------------------------------------------}
 
-            """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-                " => Helper functions
-                """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-                " Returns true if paste mode is enabled
-                function! HasPaste()
-                if &paste
-                    return 'PASTE MODE  '
-                        endif
-                        return ''
-                        endfunction
-                        " Delete trailing white space on save
-                        fun! CleanExtraSpaces()
-                        let save_cursor = getpos(".")
-                        let old_query = getreg('/')
-                        silent! %s/\s\+$//e
-                        call setpos('.', save_cursor)
-                        call setreg('/', old_query)
-                        endfun
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
+" Delete trailing white space on save
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
