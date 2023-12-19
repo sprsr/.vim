@@ -129,11 +129,9 @@
 
 " GVIM SETTINGS--------------------------------------------}
   if has('gui_running')
-  " remove the toolbar
-  set guioptions-=T
-  set lines=40
-  else
-  set term=builtin_ansi
+    " remove the toolbar
+    set guioptions-=T
+    set lines=40
   endif
 " --------------------------------------------------------}
 
@@ -177,6 +175,12 @@
     map <S-L> gt
     " Remap VIM 0 to first non-blank character
     map 0 ^
+    "Reload .vimrc
+    map <F1> :source ~/.vimrc<Enter>
+
+    " Search and replace
+    nnoremap <Leader>x *``cgn
+    nnoremap <Leader>X #``cgN
 
     """ Code folding options
     nmap <leader>f0 :set foldlevel=0<CR>
