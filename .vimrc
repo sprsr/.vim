@@ -80,6 +80,9 @@
 
   " Scroll 5 lines when cursor leaves screen
   set scrolljump=5
+  set scrolloff=3
+  set foldenable
+  set gdefault
 " }
 
 
