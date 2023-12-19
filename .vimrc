@@ -1,7 +1,7 @@
 " Disable compatibility with vi
 set nocompatible
 
-set filetype off
+filetype off
 
 " TODO: Load Plugins
 
@@ -34,3 +34,11 @@ set modelines=0
 " Show color column at 80 characters
 set colorcolumn=80
 
+"Whitespace.
+set wrap
+set autoindent
+set smartindent
+set tabstop=2 shiftwidth=2 expandtab
+
+" Enable auto completion menu after pressing TAB
+set wildmenu
