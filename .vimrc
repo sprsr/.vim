@@ -13,18 +13,30 @@ call plug#end()
 set nocompatible
 " Security
 set modelines=0
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+" autoread file when changed outside of instance
+set autoread
+au FocusGained,BufEnter * checktime
 " --------------------------------------------------------}
 
-" Environment --------------------------------------------{
-" Basic {
+" Basic --------------------------------------------------{
+" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
 " Turn on Syntax
 syntax on
+syntax enable
+set regexpengine=0
 " Detect Files
 filetype plugin indent on
 set mouse=a
 set number
 " Relative l#
 set relativenumber
+
 if !has('win32') && !has('win64')
     set term=$TERM
 endif
@@ -35,6 +47,10 @@ set virtualedit=onemore
 set spell
 " Encoding. 
 set encoding=utf-8
+" Turn backup off, since most stuff is in SVN, git etc. anyway...
+set nobackup
+set nowb
+set noswapfile
 " }
 
 " Vim UI {
@@ -70,14 +86,7 @@ set splitright
 if has('statusline')
     set laststatus=2
 
-    " Broken down into easily includeable segments
-    set statusline=%<%f\\   " Filename
-    set statusline+=%w%h%m%r " Options
-    set statusline+=%{fugitive\#statusline()} "  Git Hotness
-    set statusline+=\\ [%{&ff}/%Y]            " filetype
-    set statusline+=\\ [%{getcwd()}]          " current dir
-    "set statusline+=\\ [A=\\%03.3b/H=\\%02.2B] " ASCII /Hexadecimal value of char
-    set statusline+=%=%-14.(%l,%c%V%)\\ %p%%  " Right aligned file nav info
+    set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 endif
 " }
 
@@ -134,8 +143,6 @@ set smartcase
     cmap wQ wq
     cmap Q q
     cmap Tabe tabe
-
-
 " }
 
 " Enable auto completion menu after pressing TAB
@@ -149,3 +156,14 @@ set laststatus=2
 " Last Line
 set showmode
 set showcmd
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Helper functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Returns true if paste mode is enabled
+function! HasPaste()
+    if &paste
+        return 'PASTE MODE  '
+    endif
+    return ''
+endfunction
