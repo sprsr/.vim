@@ -10,8 +10,8 @@
   " }
   " Disable compatibility with vi
   set nocompatible
-  " Dark Background
-  set background=dark
+  " Security
+  set modelines=0
   " TODO: Load Plugins
 " }
 
@@ -24,8 +24,6 @@
   set number
   " Relative l#
   set relativenumber
-  " Set shift width to 4 spaces
-  set shiftwidth=4
   if !has('win32') && !has('win64')
     set term=$TERM
   endif
@@ -39,6 +37,8 @@
 " }
 
 " Vim UI {
+  " Dark Background
+  set background=dark
   " load a colorscheme
   color solarized
   " only show 15 tabs
@@ -54,6 +54,13 @@
   set ruler
   " partial cmds
   set showcmd
+  " Scroll 5 lines when cursor leaves screen
+  set scrolljump=5
+  set scrolloff=3
+  set foldenable
+  set gdefault
+  set list
+  set listchars=tab:>.,trail:.,extends:\#,nbsp:.
   
   if has('statusline')
          set laststatus=2
@@ -67,6 +74,7 @@
          "set statusline+=\\ [A=\\%03.3b/H=\\%02.2B] " ASCII /Hexadecimal value of char
          set statusline+=%=%-14.(%l,%c%V%)\\ %p%%  " Right aligned file nav info
      endif
+" }
 
   set backspace=indent,eol,start  " backspace for dummys
   set linespace=0                 " No extra spaces between rows
@@ -78,25 +86,23 @@
   set ignorecase
   set smartcase
 
-  " Scroll 5 lines when cursor leaves screen
-  set scrolljump=5
-  set scrolloff=3
-  set foldenable
-  set gdefault
 " }
 
 
-" Security
-set modelines=0
 
 " Show color column at 80 characters
 " set colorcolumn=80
 
 "Whitespace.
-set wrap
+set nowrap
 set autoindent
 set smartindent
-set tabstop=2 shiftwidth=4 expandtab
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set pastetoggle=<F12>
+
 
 " Enable auto completion menu after pressing TAB
 set wildmenu
