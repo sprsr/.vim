@@ -15,5 +15,22 @@ set cursorcolumn
 " Set shift width to 4 spaces
 set shiftwidth=4
 
+" Line Numbers with Relative Line Numbers
 set number
 set relativenumber
+
+" File Stats
+set ruler
+
+" Blink cursor on error
+set visualbell
+
+" Encoding. 
+set encoding=utf-8
+
+" Security
+set modelines=0
+
+" Show color column at 80 characters
+set colorcolumn=80
+
