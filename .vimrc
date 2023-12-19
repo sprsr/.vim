@@ -38,14 +38,24 @@
   " Allow cursor to go beyond last char
   set virtualedit=onemore
 
+  " Spell Checking
+  set spell
 
 
+" Vim UI {
+  " load a colorscheme
+  color solarized
+  " only show 15 tabs
+  set tabpagemax=15
+  " display the current modew
+  set showmode
+
+  " Blink cursor on error
+  set visualbell
 
 " File Stats
 set ruler
 
-" Blink cursor on error
-set visualbell
 
 " Encoding. 
 set encoding=utf-8
