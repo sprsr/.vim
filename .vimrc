@@ -11,21 +11,39 @@
     Plug 'kshenoy/vim-signature'
     " Plugin for Linting
     Plug 'dense-analysis/ale'
-    " Plugin for Autocomplete
-
-
+    " Simple Tab Complete"
+    Plug 'vim-scripts/VimCompletesMe'
+    " Interactive Programs in Buffers (terminal)
+    Plug 'vim-scripts/Conque-Shell'
+    " Verilog Syntax Plugin
+    Plug 'vhda/verilog_systemverilog.vim'
     call plug#end()
-
+    
     " Disable compatibility with vi
     set nocompatible
     " Security
     set modelines=0
+    
     " Enable filetype plugins
     filetype plugin on
     filetype indent on
     " autoread file when changed outside of instance
     set autoread
     au FocusGained,BufEnter * checktime
+" --------------------------------------------------------}
+
+" Plug In Settings ---------------------------------------{
+
+    " Enabling System Verilog Syntax Folding
+    let g:verilog_syntax_fold_lst = "all"
+    set foldenable
+    set foldmethod=syntax
+    " Follow Modules and Ports in System Verilog
+    nnoremap <leader>i :VerilogFollowInstance<CR>
+    nnoremap <leader>I :VerilogFollowPort<CR>
+    " Jump to Instance start
+    nnoremap <leader>u :VerilogGotoInstanceStart<CR"
+
 " --------------------------------------------------------}
 
 " Basic --------------------------------------------------{
@@ -85,8 +103,6 @@
     " Scroll 5 lines when cursor leaves screen
     set scrolljump=5
     set scrolloff=3
-    set foldenable
-    set foldmethod=marker
     set gdefault
     set list
     set listchars=tab:>.,trail:.,extends:\#,nbsp:.
