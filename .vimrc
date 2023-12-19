@@ -13,33 +13,25 @@
 " Basic {
   " Turn on Syntax
   syntax on
-
   " Detect Files
   filetype plugin indent on
-
   set mouse=a
- 
-  " Line Numbers with Relative Line Numbers
   set number
+  " Relative l#
   set relativenumber
-
-
   " Set shift width to 4 spaces
   set shiftwidth=4
-
   if !has('win32') && !has('win64')
     set term=$TERM
   endif
-
   " set autochdir
   " Allow cursor to go beyond last char
   set virtualedit=onemore
-
   " Spell Checking
   set spell
   " Encoding. 
   set encoding=utf-8
-
+" }
 
 " Vim UI {
   " load a colorscheme
@@ -55,7 +47,8 @@
   set visualbell
   " File Stats
   set ruler
-  set rulerformat=%30(%=\\:b%n%y%m%r%w\\ %l,%c%V\\ %P%)
+  " partial cmds
+  set showcmd
 
 
 " Security
