@@ -1,16 +1,20 @@
-" Disable compatibility with vi
-set nocompatible
+" Environment {
+  if has('win32') || has('win64')
+    set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+  endif
 
-filetype off
+  " Disable compatibility with vi
+  set nocompatible
+  " Dark Background
+  set background=dark
+  " TODO: Load Plugins
 
-" TODO: Load Plugins
+  " Turn on Syntax
+  syntax on
 
-" Turn on Syntax
-syntax on
-
-" Highlight cursor line
+  " Highlight cursor line
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 
 " Set shift width to 4 spaces
 set shiftwidth=4
@@ -32,7 +36,7 @@ set encoding=utf-8
 set modelines=0
 
 " Show color column at 80 characters
-set colorcolumn=80
+" set colorcolumn=80
 
 "Whitespace.
 set wrap
@@ -42,3 +46,15 @@ set tabstop=2 shiftwidth=2 expandtab
 
 " Enable auto completion menu after pressing TAB
 set wildmenu
+set wildmode=list:longest
+
+" allow hidden buffers"
+set hidden
+
+set ttyfast
+
+set laststatus=2
+
+" Last Line
+set showmode
+set showcmd
