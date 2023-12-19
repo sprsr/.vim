@@ -8,20 +8,38 @@
   " Dark Background
   set background=dark
   " TODO: Load Plugins
+" }
 
+" Basic {
   " Turn on Syntax
   syntax on
 
+  " Detect Files
+  filetype plugin indent on
+
+  set mouse=a
+ 
+  " Line Numbers with Relative Line Numbers
+  set number
+  set relativenumber
+
   " Highlight cursor line
-set cursorline
-" set cursorcolumn
+  set cursorline
+  " set cursorcolumn
 
-" Set shift width to 4 spaces
-set shiftwidth=4
+  " Set shift width to 4 spaces
+  set shiftwidth=4
 
-" Line Numbers with Relative Line Numbers
-set number
-set relativenumber
+  if !has('win32') && !has('win64')
+    set term=$TERM
+  endif
+
+  " set autochdir
+  " Allow cursor to go beyond last char
+  set virtualedit=onemore
+
+
+
 
 " File Stats
 set ruler
