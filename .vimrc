@@ -1,16 +1,21 @@
-" Environment {
+" Environment --------------------------------------------{
 " Plugin manager
 call plug#begin()
-
+    " Git Plug In
+    Plug 'tpope/vim-fugitive'
+    " gruvbox theme
+    Plug 'morhetz/gruvbox'
+    " NerdTree Plugin
+    Plug 'preservim/nerdtree'
 call plug#end()
 
 " Disable compatibility with vi
 set nocompatible
 " Security
 set modelines=0
-" TODO: Load Plugins
-" }
+" --------------------------------------------------------}
 
+" Environment --------------------------------------------{
 " Basic {
 " Turn on Syntax
 syntax on
@@ -36,7 +41,7 @@ set encoding=utf-8
 " Dark Background
 set background=dark
 " load a colorscheme
-color solarized
+color gruvbox
 " only show 15 tabs
 set tabpagemax=15
 " display the current modew
@@ -59,6 +64,8 @@ set foldenable
 set gdefault
 set list
 set listchars=tab:>.,trail:.,extends:\#,nbsp:.
+set splitbelow
+set splitright
 
 if has('statusline')
     set laststatus=2
