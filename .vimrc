@@ -49,10 +49,10 @@
     " Jump to Instance start
     nnoremap <leader>u :VerilogGotoInstanceStart<CR"
 
-    "Git fugitive"
-    nnoremap <leader>ga :Git add
+    "Git Shortcuts"
+    nnoremap <leader>ga :Git add 
     nnoremap <leader>gA :Git add *<CR>
-    nnoremap <leader>gc :Git commit
+    nnoremap <leader>gc :Git commit -m 
     nnoremap <leader>gC :Git commit -m 'updates'<CR>
     nnoremap <leader>gp :Git push<CR>
     nnoremap <leader>gP :Git add *<CR>Git commit -m 'updates'<CR>Git push<CR>
