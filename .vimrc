@@ -19,6 +19,8 @@
     Plug 'preservim/vim-indent-guides'
     " quotes, parantheses, brackets, quotes
     Plug 'tpope/vim-surround'
+    " minimap
+    Plug 'wfxr/minimap.vim'
     " ChatGPT lol
     Plug 'CoderCookE/vim-chatgpt'
     call plug#end()
@@ -56,6 +58,11 @@
     nnoremap <leader>gC :Git commit -m 'updates'<CR>
     nnoremap <leader>gp :Git push<CR>
     nnoremap <leader>gP :Git add *<CR>Git commit -m 'updates'<CR>Git push<CR>
+
+    " Minimap
+    let g:minimap_width = 10
+    let g:minimap_auto_start = 1
+    let g:minimap_auto_start_win_enter = 1
 
     "ChatGPT Key"
     let g:openai_api_key='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'
