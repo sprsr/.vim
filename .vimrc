@@ -48,6 +48,15 @@
     nnoremap <leader>I :VerilogFollowPort<CR>
     " Jump to Instance start
     nnoremap <leader>u :VerilogGotoInstanceStart<CR"
+
+    "Git fugitive"
+    nnoremap <leader>ga :Git add
+    nnoremap <leader>gA :Git add *<CR>
+    nnoremap <leader>gc :Git commit
+    nnoremap <leader>gC :Git commit -m 'updates'<CR>
+    nnoremap <leader>gp :Git push<CR>
+    nnoremap <leader>gP :Git add *<CR>Git commit -m 'updates'<CR>Git push<CR>
+
     "ChatGPT Key"
     let g:openai_api_key='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'
     let g:chat_gpt_max_tokens=2000
