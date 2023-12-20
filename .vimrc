@@ -15,7 +15,14 @@
     Plug 'vim-scripts/Conque-Shell'
     " Verilog Syntax Plugin
     Plug 'vhda/verilog_systemverilog.vim'
+    " Indent Visualization
+    Plug 'preservim/vim-indent-guides'
+    " quotes, parantheses, brackets, quotes
+    Plug 'tpope/vim-surround'
+    " ChatGPT lol
+    Plug 'CoderCookE/vim-chatgpt'
     call plug#end()
+    
     
     " Disable compatibility with vi
     set nocompatible
@@ -41,6 +48,14 @@
     nnoremap <leader>I :VerilogFollowPort<CR>
     " Jump to Instance start
     nnoremap <leader>u :VerilogGotoInstanceStart<CR"
+    "ChatGPT Key"
+    let g:openai_api_key='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'
+    let g:chat_gpt_max_tokens=2000
+    let g:chat_gpt_model='gpt-4'
+    let g:chat_gpt_session_mode=0
+    let g:chat_gpt_temperature = 0.7
+    let g:chat_gpt_lang = 'English'
+    let g:chat_gpt_split_direction = 'vertical'
 
 " --------------------------------------------------------}
 
