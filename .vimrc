@@ -63,7 +63,7 @@
     nnoremap <leader>dr :DrawIt <CR>
 
     "ChatGPT Key"
-    let g:openai_api_key='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'
+    let g:openai_api_key='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'
     let g:chat_gpt_max_tokens=2000
     let g:chat_gpt_model='gpt-4'
     let g:chat_gpt_session_mode=0
@@ -196,7 +196,7 @@
     map <C-L> <C-W>l<C-W>_
     map <C-H> <C-W>h<C-W>_
     map <C-K> <C-W>k<C-W>_
-
+    map :sp c sbc | wincmd p | wincmd T
     " Maps Shift+(H/L) to navigate tabs
     map <S-H> gT
     map <S-L> gt
