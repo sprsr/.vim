@@ -63,7 +63,7 @@
     nnoremap <leader>dr :DrawIt <CR>
 
     "ChatGPT Key"
-    let g:openai_api_key='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'
+    "let g:openai_api_key='
     let g:chat_gpt_max_tokens=2000
     let g:chat_gpt_model='gpt-4'
     let g:chat_gpt_session_mode=0
