@@ -1,3 +1,4 @@
+" @sprsr vim config
 " Environment --------------------------------------------{
     " Plugin manager
     call plug#begin()
