@@ -201,7 +201,7 @@
     map <C-L> <C-W>l<C-W>_
     map <C-H> <C-W>h<C-W>_
     map <C-K> <C-W>k<C-W>_
-    map spc :sbc | wincmd p | wincmd T
+    " map spc :sbc | wincmd p | wincmd T
     " Maps Shift+(H/L) to navigate tabs
     map <S-H> gT
     map <S-L> gt
