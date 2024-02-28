@@ -22,6 +22,9 @@
     Plug 'tpope/vim-surround'
     " DrawIt
     Plug 'vim-scripts/DrawIt'
+    # Fuzzy Finder
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     " ChatGPT lol
     Plug 'CoderCookE/vim-chatgpt'
     call plug#end()
