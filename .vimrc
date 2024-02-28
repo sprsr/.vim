@@ -190,6 +190,8 @@
 
 " Mappings ----------------------------------------------{
     let mapleader = ','
+    let g:altshift = '\eS'
+
     " toggle spellcheck
     map <leader>ss :setlocal spell!<cr>
     " Spellcheck nav
@@ -197,6 +199,12 @@
     map <leader>sp [s
     map <leader>sa zg
     map <leader>s? z=
+
+    " Resize Splits
+    nnoremap <silent> <A-S-K> :execute "resize +5"<CR>
+    nnoremap <silent> <A-S-J> :execute "resize -5"<CR>
+    nnoremap <silent> <A-S-L> :execute "vertical resize +5"<CR>
+    nnoremap <silent> <A-S-H> :execute "vertical resize -5"<CR>
 
     " Ctrl+W+(J/K/L/H) switch to Ctrl+(J/K/L/H)
     map <C-J> <C-W>j<C-W>_
