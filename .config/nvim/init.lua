@@ -1,5 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -18,6 +17,19 @@ require("lazy").setup({
 run = ":MasonUpdate" -- Update registry contents
 },
 {"neovim/nvim-lspconfig"},
+
+-- lsp status
+-- {"nvim-lua/lsp-status.nvim"},
+{ "kyazdani42/nvim-web-devicons"},
+{
+  "NTBBloodbath/galaxyline.nvim",
+  -- your statusline
+  config = function()
+    require("galaxyline.themes.eviline")
+  end,
+  -- some optional icons
+  requires = { "kyazdani42/nvim-web-devicons", opt = true }
+},
 
 -- Alpha Menu
 {
@@ -39,6 +51,19 @@ run = ":MasonUpdate" -- Update registry contents
 -- minimap
 -- requires github.com/wfxr/code-minimap
 {"wfxr/minimap.vim"},
+{"rcarriga/nvim-notify"},
+-- Calendar
+{
+    "aPeoplesCalendar/apc.nvim",
+    dependencies = {
+        "rcarriga/nvim-notify",
+    },
+    event = "VeryLazy",
+    config = function ()
+        require("apeoplescalendar").setup() -- configuration options are described below
+    end,
+},
+
 -- nvim-web-devicons
 {"nvim-tree/nvim-web-devicons"},
 
