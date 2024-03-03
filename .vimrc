@@ -22,7 +22,7 @@
     Plug 'tpope/vim-surround'
     " DrawIt
     Plug 'vim-scripts/DrawIt'
-    # Fuzzy Finder
+    " Fuzzy Finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     " ChatGPT lol
@@ -92,9 +92,9 @@
     set number
     " Relative l#
     set relativenumber
-    if !has('win32') && !has('win64')
-        set term=$TERM
-    endif
+    "if !has('win32') && !has('win64')
+    "    set term=$TERM
+    "endif
     " set autochdir
     " Allow cursor to go beyond last char
     set virtualedit=onemore
