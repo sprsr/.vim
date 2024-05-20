@@ -1,7 +1,7 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
-    "clone",
+   "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
@@ -12,24 +12,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
--- Mason Registry Manager 
-{ "williamboman/mason.nvim",
+-- Mason Registry Manager
+{
+"williamboman/mason.nvim",
 run = ":MasonUpdate" -- Update registry contents
 },
 {"neovim/nvim-lspconfig"},
-
--- lsp status
--- {"nvim-lua/lsp-status.nvim"},
-{ "kyazdani42/nvim-web-devicons"},
-{
-  "NTBBloodbath/galaxyline.nvim",
-  -- your statusline
-  config = function()
-    require("galaxyline.themes.eviline")
-  end,
-  -- some optional icons
-  requires = { "kyazdani42/nvim-web-devicons", opt = true }
-},
 
 -- Alpha Menu
 {
@@ -40,33 +28,28 @@ run = ":MasonUpdate" -- Update registry contents
     end
 },
 
--- nvim-cmp 
 -- Full support for LSP completion with minimal dependancies
+-- nvim-cmp 
 {"hrsh7th/cmp-nvim-lsp"},
 {"hrsh7th/cmp-buffer"},
 {"hrsh7th/cmp-path"},
 {"hrsh7th/cmp-cmdline"},
 {"hrsh7th/nvim-cmp"},
 
--- minimap
--- requires github.com/wfxr/code-minimap
-{"wfxr/minimap.vim"},
-{"rcarriga/nvim-notify"},
--- Calendar
-{
-    "aPeoplesCalendar/apc.nvim",
-    dependencies = {
-        "rcarriga/nvim-notify",
-    },
-    event = "VeryLazy",
-    config = function ()
-        require("apeoplescalendar").setup() -- configuration options are described below
-    end,
-},
-
 -- nvim-web-devicons
 {"nvim-tree/nvim-web-devicons"},
 
+-- Leap
+{"ggandor/leap.nvim"},
+-- neoscroll
+{"karb94/neoscroll.nvim",
+  config = function ()
+    require('neoscroll').setup {}
+  end
+},
+
+{"sindrets/diffview.nvim"},
+    
 -- Tetris
 {"alec-gibson/nvim-tetris"},
 
@@ -77,7 +60,11 @@ run = ":MasonUpdate" -- Update registry contents
         "nvim-treesitter/nvim-treesitter"
     }
 },
-
+-- Blackjack
+-- {
+-- 'alanfortlink/blackjack.nvim',
+--  requires = {'nvim-lua/plenary.nvim'},
+-- }
 })
 
 -- Setup language servers.
@@ -89,15 +76,17 @@ local lspconfig = require('lspconfig')
 
  lspconfig.cpptools.setup{
      settings= {
-     	cmd = "~/.local/share/nvim/mason/packages/cpptools/extension/bin/cpptools"
+     	cmd = "/home/scpresse/.local/share/nvim/mason/bin/OpenDebugAD7"
      }
  }
--- setup hdl_checker
- lspconfig.hdl_checker.setup{}
 -- setup mason
 require("mason").setup()
+-- setup diffview
+require('diffview').setup()
 
--- setup minimap
+-- default leap maps
+require('leap').create_default_mappings()
+
 -- setup cmp
   -- Set up nvim-cmp.
   local cmp = require'cmp'
