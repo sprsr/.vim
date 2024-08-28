@@ -11,14 +11,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
--- Mason Registry Manager
-{
-"williamboman/mason.nvim",
-run = ":MasonUpdate" -- Update registry contents
-},
-{"neovim/nvim-lspconfig"},
-
+    
 -- Alpha Menu
 {
     "goolord/alpha-nvim",
@@ -27,6 +20,28 @@ run = ":MasonUpdate" -- Update registry contents
         require'alpha'.setup(require'alpha.themes.startify'.config)
     end
 },
+
+-- Barbecue 
+{
+  "utilyre/barbecue.nvim",
+  name = "barbecue",
+  version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  opts = {
+    -- configurations go here
+  },
+},
+
+-- Mason Registry Manager
+{
+"williamboman/mason.nvim",
+run = ":MasonUpdate" -- Update registry contents
+},
+
+{"neovim/nvim-lspconfig"},
 
 -- Full support for LSP completion with minimal dependancies
 -- nvim-cmp 
@@ -48,6 +63,16 @@ run = ":MasonUpdate" -- Update registry contents
   end
 },
 
+-- Oil
+{
+  'stevearc/oil.nvim',
+  opts = {},
+  -- Optional dependencies
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+},
+
+--diffview
 {"sindrets/diffview.nvim"},
     
 -- Tetris
@@ -60,11 +85,7 @@ run = ":MasonUpdate" -- Update registry contents
         "nvim-treesitter/nvim-treesitter"
     }
 },
--- Blackjack
--- {
--- 'alanfortlink/blackjack.nvim',
---  requires = {'nvim-lua/plenary.nvim'},
--- }
+
 })
 
 -- Setup language servers.
@@ -159,3 +180,5 @@ require('leap').create_default_mappings()
 
 -- Source init.vim
 vim.cmd('source ~/.config/nvim/classic.vim')
+
+require("barbecue.ui").toggle(true)
